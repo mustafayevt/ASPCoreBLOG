@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<form action="/post/add" method="post">
+    <input type="text" name="title" placeholder="Title:">
+    <br />
+    <input type="text" name="content" placeholder="Content:">
+    <br />
+    <input type="submit" id="submit" class="btn btn-dark" value="Add Post" onclick="">
+</form>
+
+
+<script>
+    $(function () {
+        $("#submit").click(function() {
+    var empty = $(this).parent().find("input").filter(function() {
+        return this.value === "";
+    });
+            if (empty.length) {
+                alert("Some Fields Are Empty");
+    }
+});
+    });
+</script>

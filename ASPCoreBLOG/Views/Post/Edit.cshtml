@@ -1,0 +1,20 @@
+﻿@model ASPCoreBLOG.ViewModels.PostViewModel
+@{
+    Layout = "_Layout";
+}
+
+
+<div class="card-body">
+    <img src="https://images.unsplash.com/photo-1499084732479-de2c02d45fcc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80" class="card-img-top" alt="...">
+    <p class="card-text">@Model.Time</p>
+
+
+    <form action="/post/edit" method="post">
+        <input type="number" name="id" hidden value="@Model.Id">
+        <input type="text" class="card-title" name="title" placeholder="Title:" value="@Model.Title">
+        <br />
+        <input type="text" class="card-text" name="content" placeholder="Content" value="@Model.Content">
+        <br />
+        <input class="btn btn-dark" type="submit" value="Save">
+    </form>
+</div>

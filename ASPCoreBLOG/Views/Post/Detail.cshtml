@@ -1,0 +1,26 @@
+﻿@model ASPCoreBLOG.ViewModels.PostViewModel
+@{
+    Layout = "_Layout";
+}
+
+    <div class="card-body">
+        <img src="https://images.unsplash.com/photo-1499084732479-de2c02d45fcc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80" class="card-img-top" alt="...">
+        <p class="card-text">@Model.Time</p>
+
+        <h1 class="card-title">@Model.Title</h1>
+        <p class="card-text">@Model.Content</p>
+        <h3 class="card-text">Comments</h3>
+        <ol>
+
+        @foreach (var comment in Model.Comments)
+        {
+            <li class="card-text" >@comment.Content</li>
+        }
+        </ol>
+
+        <form action="/post/addComment" method="post">
+            <input type="number" name="id" hidden value="@Model.Id">
+            <textarea type="text" name="comment" placeholder="Comment:"></textarea>
+            <input class="btn btn-dark" type="submit" value="Add Comment">
+        </form>
+    </div>

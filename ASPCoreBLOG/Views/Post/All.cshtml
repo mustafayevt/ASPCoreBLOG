@@ -1,0 +1,23 @@
+﻿@model IList<ASPCoreBLOG.ViewModels.PostViewModel>
+@{
+    Layout = "_Layout";
+}
+<div class="row">
+
+    @foreach (var post in Model)
+    {
+        <div class="col-lg-4">
+            <div class="card" style="width: 20rem; margin:20px;">
+                <img src="https://images.unsplash.com/photo-1499084732479-de2c02d45fcc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">@post.Time</p>
+
+
+                    <p class="card-text">@post.Title</p>
+                    <a href="/post/detail/@post.Id" class="btn btn-primary">Detail</a>
+                    <a href="/post/edit/@post.Id" class="btn btn-warning">Edit Post</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
